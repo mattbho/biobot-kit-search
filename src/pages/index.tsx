@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Image from 'next/image';
 import { AutoComplete } from '@/components/AutoComplete';
 import { Result } from '@/components/Result';
 
@@ -15,8 +14,8 @@ export default function Home() {
 
   return (
     <div className="sm:container mx-auto mt-5 flex flex-col justify-center items-center">
-      <Image className='w-80' src='https://biobot.io/wp-content/themes/biobot/assets/img/logo.svg' alt='logo' />
-      <p className='font-bold text-white my-5'>Welcome! Please search for your kit id to retrieve your BioBot kit tracking information.</p>
+      <img className='w-80' src='https://biobot.io/wp-content/themes/biobot/assets/img/logo.svg' alt='logo' />
+      <p className='font-bold text-white my-5'>Welcome! Please search for your kit id to retrieve tracking information.</p>
       <AutoComplete setSelectedOption={handleSetSelectedOption} />
       {selectedOption && <Result kit={selectedOption} />}
     </div>

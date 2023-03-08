@@ -33,6 +33,8 @@ export const AutoComplete: FC<AutoCompleteProps> = ({ setSelectedOption }) => {
     <div className='w-full'>
       <AsyncSelect
         loadOptions={fetchOptions}
+        id="select-kit"
+        instanceId="select-kit"
         defaultOptions
         cacheOptions={false}
         placeholder='Search for test kits'
