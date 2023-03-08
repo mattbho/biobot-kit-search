@@ -1,10 +1,24 @@
 import { useState } from 'react';
+import Image from 'next/image';
+import { AutoComplete } from '@/components/AutoComplete';
+import { Result } from '@/components/Result';
+
+import { Kit } from '@/types/kit';
 
 
 export default function Home() {
-  const [selectedOption, setSelectedOption] = useState<string>('');
+  const [selectedOption, setSelectedOption] = useState<Kit | null>(null);
+
+  const handleSetSelectedOption = (option: Kit | null) => {
+    setSelectedOption(option);
+  }
 
   return (
-    <div className="text-3xl font-bold underline">Hello World</div>
+    <div className="sm:container mx-auto mt-5 flex flex-col justify-center items-center">
+      <Image className='w-80' src='https://biobot.io/wp-content/themes/biobot/assets/img/logo.svg' alt='logo' />
+      <p className='font-bold text-white my-5'>Welcome! Please search for your kit id to retrieve your BioBot kit tracking information.</p>
+      <AutoComplete setSelectedOption={handleSetSelectedOption} />
+      {selectedOption && <Result kit={selectedOption} />}
+    </div>
   )
 }

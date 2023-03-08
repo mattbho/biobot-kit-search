@@ -1,12 +1,18 @@
-import * as kitData from '@/data/KITS_SHIPPING_DATA.json';
+import kitData from '@/data/KITS_SHIPPING_DATA.json';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { Kit } from '@/types/kit';
 
-/*
-  * */
 export default function handler(
-  _req: NextApiRequest,
+  req: NextApiRequest,
   res: NextApiResponse<Kit[]>
 ) {
-  return res.status(200).json(kitData);
+  const { q } = req.query;
+  const searchTerm = q as string;
+
+  // As the data set scales, we'll want to leverage a database, along with a search engine like Algolia
+  const filteredKitData: Kit[] =
+    searchTerm ?
+      kitData.filter((kit: Kit) => kit.label_id.indexOf(searchTerm) > -1) : kitData;
+
+  return res.status(200).json(filteredKitData);
 }
