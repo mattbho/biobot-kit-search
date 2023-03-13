@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { Kit } from '@/types/kit';
+import { FC } from "react";
+import { Kit } from "@/types/kit";
 
 interface ResultProps {
   readonly kit: Kit
@@ -29,5 +29,5 @@ export const Result: FC<ResultProps> = ({ kit }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -1,6 +1,6 @@
-import kitData from '@/data/KITS_SHIPPING_DATA.json';
-import type { NextApiRequest, NextApiResponse } from 'next';
-import type { Kit } from '@/types/kit';
+import kitData from "@/data/KITS_SHIPPING_DATA.json";
+import type { NextApiRequest, NextApiResponse } from "next";
+import type { Kit } from "@/types/kit";
 
 export default function handler(
   req: NextApiRequest,
